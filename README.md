@@ -1,10 +1,10 @@
 # SI-507-Final-Project
-Project Overview:
+# Project Overview:
 The main objective of this project is to build a web application using a Python Framework that allows users to get top places to visit recommendations for their country, state, and city of choice. The web application also picks up your current location based on the system IP address. The user will be able to log in to the web application, create a profile and modify certain information like photo, bio, etc. The final page will display the top Places to visit in the selected city based on top reviews on Yelp. 
 
-GitHub Link:
+# GitHub Link:
 -
-Instructions for running the code:
+# Instructions for running the code:
 •	Please download the code zip file and unzip it at your desired location.
 •	Open a terminal and navigate to that location using the “cd” command.
 •	Run the command “pip install -r requirements.txt --user” to install the necessary dependencies.
@@ -45,7 +45,7 @@ o	Copy the API key and the Secret Key from the previous GitHub page and paste it
 •	Once all the previous steps have been successfully completed, you can run the program by using the command:
 $ python manage.py runserver
 •	Open http://127.0.0.1:8000/ in a browser.
-Data Sources:
+# Data Sources:
 1.	Yelp Fusion, which is the data source for the table "Restaurants" in the database.
 https://www.yelp.com/developers/documentation/v3/business_search 
 Data was scraped from Yelp website using authentication key.
@@ -54,10 +54,10 @@ https://github.com/dr5hn/countries-states-cities-database
 Format stored: SQL
 Data Structure used: Tree Structure
 Data was scraped from the huge JSON file and necessary data is stored in a Tree-structured SQL database, to access it when needed in Forms.
-Data Structure:
+# Data Structure:
 I used a generic Tree structure to store all the country, state, and city data. I have also loaded all the states and cities for the “United States” into a tree-structured SQL database for me to use in the web application. This can be seen in one of the pages where I have coded a dynamically populated Dropdown list for Country, State and Cities. 
 
-Interaction and Presentation:
+# Interaction and Presentation:
 The web application is designed using the Django Web Framework. The Webpages were designed using HTML, CSS, Bootstrap 5, and necessary JavaScript. The website is an Activities Recommendation system that will recommend the top-rated Places to visit in either the City you are currently logging in from or from a City of your choice from any State in the United States. If the user finds any place that interests him, he can click on the “More Info” button found on the respective Restaurant card and it will redirect him to the Yelp Page where the user can proceed. 
 This web application also has a user management system, wherein a new user is prompted to Login using GitHub or Google Account or Create a new Account. 
 
