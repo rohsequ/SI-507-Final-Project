@@ -21,7 +21,8 @@ o	Step 2 - Go to the “Credentials” section in the left menu and create a new
 o	Step 3 - In the Create credentials menu, select OAuth client ID
 o	Step 4 - Select web application as the type of application and fill in the required information.
 o	Authorized redirect URIs is where users will be redirected to after they are authenticated.
- 
+ ![image](https://user-images.githubusercontent.com/81701847/206368260-7860381f-fbd3-4ee4-98e7-1e4933579708.png)
+
 o	Please copy the URL from the above image as it is in your case as well.
 o	Now you will be provided with a Client ID and Client Secret which we will be adding  in the “.env” file that you would need to create in the “mypage” folder that contains “settings.py” file.
 o	Open the “.env” file that you just created and copy the following lines with the necessary modifications:
