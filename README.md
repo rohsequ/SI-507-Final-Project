@@ -3,7 +3,7 @@
 The main objective of this project is to build a web application using a Python Framework that allows users to get top places to visit recommendations for their country, state, and city of choice. The web application also picks up your current location based on the system IP address. The user will be able to log in to the web application, create a profile and modify certain information like photo, bio, etc. The final page will display the top Places to visit in the selected city based on top reviews on Yelp. 
 
 # GitHub Link:
--
+- https://github.com/rohsequ/SI-507-Final-Project 
 # Instructions for running the code:
 •	Please download the code zip file and unzip it at your desired location.
 •	Open a terminal and navigate to that location using the “cd” command.
