@@ -49,7 +49,10 @@ def continue_to_main_view(request):
     req=requests.get(url, params=params, headers=headers)
     package = json.loads(req.text)
     package = package['businesses']
-    return render(request, 'food_cards.html', {'package': package})
+    if package:
+        return render(request, 'food_cards.html', {'package': package, 'city': personloc.city.name, 'state': personloc.state.name})
+    else:
+        return render(request, "404_no_recommend.html")
 
 def load_cities(request):
     state_id = request.GET.get('state_id')
