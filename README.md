@@ -11,44 +11,44 @@ The main objective of this project is to build a web application using a Python 
 •	Run the command “pip install -r requirements.txt --user” to install the necessary dependencies.
 •	The next main step is to get the API key from Yelp Fusion API Developers page:
 
-         o	Go to https://www.yelp.com/developers/documentation/v3/authentication and create your app according to the instruction.
-         o	Once you get your API key, create a file called .env under “front_page_ip” folder.
-         o	Inside the “.env” file add the following line: 
-                           YELP_API_KEY=<ADD_YOUR_API_KEY>
-         o	Replace the <ADD_YOUR_API_KEY> part with the API key you copied from the previous steps.
+      o	Go to https://www.yelp.com/developers/documentation/v3/authentication and create your app according to the instruction.
+      o	Once you get your API key, create a file called .env under “front_page_ip” folder.
+      o	Inside the “.env” file add the following line: 
+                        YELP_API_KEY=<ADD_YOUR_API_KEY>
+      o	Replace the <ADD_YOUR_API_KEY> part with the API key you copied from the previous steps.
 
 •	Next, we need to get the API key from your Google developer account for OAuth Sign-in using the Google Account feature.
 
-         o	Step 1 - Go to Google Developers Console
-         https://console.cloud.google.com/projectselector2/apis/dashboard?supportedpurview=project. 
-         o	Step 2 - Go to the “Credentials” section in the left menu and create a new project
-         o	Step 3 - In the Create credentials menu, select OAuth client ID
-         o	Step 4 - Select web application as the type of application and fill in the required information.
-         o	Authorized redirect URIs is where users will be redirected to after they are authenticated.
+      o	Step 1 - Go to Google Developers Console
+      https://console.cloud.google.com/projectselector2/apis/dashboard?supportedpurview=project. 
+      o	Step 2 - Go to the “Credentials” section in the left menu and create a new project
+      o	Step 3 - In the Create credentials menu, select OAuth client ID
+      o	Step 4 - Select web application as the type of application and fill in the required information.
+      o	Authorized redirect URIs is where users will be redirected to after they are authenticated.
 
  ![image](https://user-images.githubusercontent.com/81701847/206368260-7860381f-fbd3-4ee4-98e7-1e4933579708.png)
 
-          o	Please copy the URL from the above image as it is in your case as well.
-          o	Now you will be provided with a Client ID and Client Secret which we will be adding  in the “.env” file that you would need to create in the “mypage” folder that contains “settings.py” file.
-          o	Open the “.env” file that you just created and copy the following lines with the necessary modifications:
-          GOOGLE_KEY=<ADD_YOUR_API_KEY>
-          GOOGLE_SECRET=<ADD_YOUR_SECRET_KEY>
-          o	Copy the API key and the Secret Key from the previous GitHub page and paste it into the mentioned location in the .env file.
+      o	Please copy the URL from the above image as it is in your case as well.
+      o	Now you will be provided with a Client ID and Client Secret which we will be adding  in the “.env” file that you would need to create in the “mypage” folder that contains “settings.py” file.
+      o	Open the “.env” file that you just created and copy the following lines with the necessary modifications:
+      GOOGLE_KEY=<ADD_YOUR_API_KEY>
+      GOOGLE_SECRET=<ADD_YOUR_SECRET_KEY>
+      o	Copy the API key and the Secret Key from the previous GitHub page and paste it into the mentioned location in the .env file.
 •	We also need to get the API key from your GitHub account for OAuth Sign-in using the GitHub Account feature.
-          o	Step 1 - Login to your GitHub account
-          o	Step 2 - Go to Settings -> Developer Settings -> OAuth Apps -> New OAuth App
-          o	Step 3 - Fill in the information 
+      o	Step 1 - Login to your GitHub account
+      o	Step 2 - Go to Settings -> Developer Settings -> OAuth Apps -> New OAuth App
+      o	Step 3 - Fill in the information 
 
 ![image](https://user-images.githubusercontent.com/81701847/206368344-0cf889dd-76d1-4cd5-8260-1e68bff5d647.png)
 
-          o	Except for the Authorization callback URL, you can fill out the rest of the information as you like.
-          o	Authorization callback URL is the most important part of setting up your OAuth application. After a user is successfully authenticated, Github returns him/her to this callback URL. PLEASE USE THE SAME ONE IN YOUR CASE AS WELL.
-          o	Once you have access to the API key and Secret key, go to the “mypage” folder which has the “settings.py” file, and create a new file and name it “.env”.
-          o	Open the “.env” file that you just created and copy the following lines with the necessary modifications:
+      o	Except for the Authorization callback URL, you can fill out the rest of the information as you like.
+      o	Authorization callback URL is the most important part of setting up your OAuth application. After a user is successfully authenticated, Github returns him/her to this callback URL. PLEASE USE THE SAME ONE IN YOUR CASE AS WELL.
+      o	Once you have access to the API key and Secret key, go to the “mypage” folder which has the “settings.py” file, and create a new file and name it “.env”.
+      o	Open the “.env” file that you just created and copy the following lines with the necessary modifications:
 
-                       GITHUB_KEY=<ADD_YOUR_API_KEY>
-                       GITHUB_SECRET=<ADD_YOUR_SECRET_KEY>
-          o	Copy the API key and the Secret Key from the previous GitHub page and paste it into the mentioned location in the .env file.
+                  GITHUB_KEY=<ADD_YOUR_API_KEY>
+                  GITHUB_SECRET=<ADD_YOUR_SECRET_KEY>
+      o	Copy the API key and the Secret Key from the previous GitHub page and paste it into the mentioned location in the .env file.
 •	Once all the previous steps have been successfully completed, you can run the program by using the command:
                         $ python manage.py runserver
 •	Open http://127.0.0.1:8000/ in a browser.
@@ -61,6 +61,13 @@ https://github.com/dr5hn/countries-states-cities-database
    Format stored: SQL
    Data Structure used: Tree Structure
 Data was scraped from the huge JSON file and necessary data is stored in a Tree-structured SQL database, to access it when needed in Forms.
+3.	Ipify API, which is used to get the IP address of the computer with which you opened the application.
+4.	IP Geolocation API, which is used to get the Location details of the user based on the IP address sent to it.
+# Web API’s used:
+1.	Yelp Fusion API – ('https://api.yelp.com/v3/businesses/search')
+2.	IPify API = ('https://api.ipify.org?format=json')
+3.	IP Geolocation API = ('http://ip-api.com/json/<YOUR_IP_ADDRESS>')
+
 # Data Structure:
 I used a generic Tree structure to store all the country, state, and city data. I have also loaded all the states and cities for the “United States” into a tree-structured SQL database for me to use in the web application. This can be seen in one of the pages where I have coded a dynamically populated Dropdown list for Country, State and Cities. 
 
