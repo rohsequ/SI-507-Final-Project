@@ -6,16 +6,27 @@ The main objective of this project is to build a web application using a Python 
 - https://github.com/rohsequ/SI-507-Final-Project 
 # Instructions for running the code:
 •	Please download the code zip file and unzip it at your desired location.
+
 •	Open a terminal and navigate to that location using the “cd” command.
+
 •	Run the command “pip install -r requirements.txt --user” to install the necessary dependencies.
+
 •	The next main step is to get the API key from Yelp Fusion API Developers page:
+
 o	Go to https://www.yelp.com/developers/documentation/v3/authentication and create your app according to the instruction.
+
 o	Once you get your API key, create a file called .env under “front_page_ip” folder.
+
 o	Inside the “.env” file add the following line: 
+
 YELP_API_KEY=<ADD_YOUR_API_KEY>
+
 o	Replace the <ADD_YOUR_API_KEY> part with the API key you copied from the previous steps.
+
 •	Next, we need to get the API key from your Google developer account for OAuth Sign-in using the Google Account feature.
+
 o	Step 1 - Go to Google Developers Console
+
 https://console.cloud.google.com/projectselector2/apis/dashboard?supportedpurview=project. 
 o	Step 2 - Go to the “Credentials” section in the left menu and create a new project
 o	Step 3 - In the Create credentials menu, select OAuth client ID
