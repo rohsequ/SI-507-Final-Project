@@ -1,0 +1,45 @@
+
+{% extends "users/base.html" %}
+{% block title %} Home Page {% endblock title%}
+{% block content %}
+    <!-- <div class="jumbotron">
+        <h1 class="display-4">Welcome, {{user.first_name.title|default:'Guest'}}</h1>
+        <p class="lead">
+            This is <b>user registration and login system</b> build with django which is
+            a Python-based free and open-source web framework that follows the model–template–views architectural pattern.
+        </p>
+        <hr class="my-4">
+        <p class="lead">
+            {% if user.is_authenticated %}
+                <a class="btn btn-primary btn-lg" href="{% url 'logout' %}" role="button">Logout</a>
+            {% else %}
+                <a class="btn btn-primary btn-lg" href="{% url 'login' %}" role="button">Sign in</a>
+            {% endif %}
+        </p>
+    </div> -->
+
+    <div class="page-header section-height-100">
+        <div class="oblique position-absolute top-0 h-100 d-md-block d-none">
+          <div class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6" style="background-image:url(/static/assets/img/restaurant.jpg)"></div>
+        </div>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-6 col-md-7 d-flex justify-content-center flex-column">
+              <h1 class="text-gradient text-primary">Your</h1>
+              <h1 class="mb-4">Recommender for Top Rated Places in </h1>
+              <p class="lead pe-5 me-5"><h1>{{ data.city }}, {{ data.region }}</h1>.</p>
+              <div class="buttons">
+                <button type="button" class="btn bg-gradient-primary mt-4" id="continue-loc" value="con-new">
+                   <a href="{% url 'front_page_ip:continue-food' %}" style="color: white;">Continue</a>
+                </button>
+                <b>OR</b>
+                <button type="button" class="btn bg-gradient-primary mt-4", id="different-loc" value="diff-new">
+                  <a href="{% url 'front_page_ip:get-loc-form' %}" style="color: white;">Different Location?</a>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+{% endblock content %}

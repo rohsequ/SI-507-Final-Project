@@ -1,0 +1,119 @@
+{% extends "users/base.html" %}
+{% block title %} Home Page {% endblock title%}
+{% block content %}
+<h2>Choose Location to get Recommendations</h2>
+
+<!-- <form method="post" id="personForm" data-states-url="{% url 'front_page_ip:ajax_load_states' %}" data-cities-url="{% url 'front_page_ip:ajax_load_cities' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit">
+</form> -->
+
+<div class="page-header">
+    <div class="position-absolute fixed-top ms-auto w-50 h-100 rounded-3 z-index-0 d-none d-sm-none d-md-block me-n4" style="background-image: url(/static/assets/img/ivancik.jpg); background-size: cover;">
+    </div>
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-lg-7 d-flex justify-content-center flex-column">
+          <div class="card card-body d-flex justify-content-center shadow-lg p-5 blur align-items-center">
+            <h3 class="text-center">Choose the City where you want your recommendations</h3>
+            {% if form.errors %}
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                    <div id="form_errors">
+                        {% for key, value in form.errors.items %}
+                            <strong>{{ value }}</strong>
+                        {% endfor %}
+                    </div>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endif %}
+            <form role="form" method="post" autocomplete="off" method="post" id="personForm" data-states-url="{% url 'front_page_ip:ajax_load_states' %}" data-cities-url="{% url 'front_page_ip:ajax_load_cities' %}">
+              {% csrf_token %}
+              <div class="card-body">
+                <div class="mb-4">
+                  <label>Select Country</label>
+                  <div class="input-group">
+                    {{ form.country }}
+                  </div>
+                </div>
+                <div class="mb-4">
+                    <label>Select State</label>
+                    <div class="input-group">
+                      {{ form.state }}
+                    </div>
+                  </div>
+                  <div class="mb-4">
+                    <label>Select City</label>
+                    <div class="input-group">
+                        {{ form.city }}
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <button type="submit" class="btn bg-gradient-primary w-100" value="submit">Next</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+    $("#id_country").change(function () {
+        const url = $("#personForm").attr("data-states-url");  // get the url of the `load_cities` view
+        const countryId = $(this).val();  // get the selected country ID from the HTML input
+
+        $.ajax({                       // initialize an AJAX request
+            url: url,                    // set the url of the request (= /persons/ajax/load-states/ )
+            data: {
+                'country_id': countryId       // add the country id to the GET parameters
+            },
+            success: function (data) {   // `data` is the return of the `load_states` view function
+                $("#id_state").html(data);  // replace the contents of the state input with the data that came from the server
+                /*
+
+                let html_data = '<option value="">---------</option>';
+                data.forEach(function (state) {
+                    html_data += `<option value="${state.id}">${state.name}</option>`
+                });
+                console.log(html_data);
+                $("#id_city").html(html_data);
+
+                */
+            }
+        });
+
+    });
+
+    $("#id_state").change(function () {
+        const url = $("#personForm").attr("data-cities-url");  // get the url of the `load_cities` view
+        const stateId = $(this).val();  // get the selected state ID from the HTML input
+
+        $.ajax({                       // initialize an AJAX request
+            url: url,                    // set the url of the request (= /persons/ajax/load-cities/ )
+            data: {
+                'state_id': stateId       // add the state id to the GET parameters
+            },
+            success: function (data) {   // `data` is the return of the `load_cities` view function
+                $("#id_city").html(data);  // replace the contents of the city input with the data that came from the server
+                /*
+
+                let html_data = '<option value="">---------</option>';
+                data.forEach(function (city) {
+                    html_data += `<option value="${city.id}">${city.name}</option>`
+                });
+                console.log(html_data);
+                $("#id_city").html(html_data);
+
+                */
+            }
+        });
+
+    });
+</script>
+{% endblock content %}

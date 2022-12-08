@@ -1,0 +1,76 @@
+{% extends "users/base.html" %}
+{% block title %} Home Page {% endblock title%}
+{% block content %}
+{% load static %}
+<link href="{% static 'assets/css/food-card.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,400i,700">
+<h2>Top Rated Places in {{ city }}, {{ state }}</h2>
+<div class=" row" id="food-row">
+
+    {% for p in package %}
+    
+        <!-- <div class="">
+            <article class="card">
+                  <img class= "card-img-top" src="{{ p.image_url }}" alt="" />
+                <div class="card2-header">
+                  <header class="card-title">
+                    <h4>{{ p.name }}</h4>
+                  <br>
+                    <address>
+                      <span class="icon-pin" aria-hidden="true"></span>
+                      {% for address_name in p.location.display_address %}
+                      {{ address_name }}<br>
+                      {% endfor %}
+                    </address>
+                    <span>{{ p.price }}</span>
+                </header>
+                </div>
+                <div class="card-footer">
+                  <ul class="card2-stats">
+                    <li>
+                      <strong>{{ p.review_count }}</strong>
+                      reviews
+                    </li>
+                    <li>
+                      <strong>{{ p.rating }}</strong>
+                      Rating
+                    </li>
+                    <li>
+                      <strong>205</strong>
+                      dishes
+                    </li>
+                  </ul>
+                <a href="{{ p.url }}" class="card2-button">More Info</a>
+            </div>
+              </article>
+        </div> /.col-md-3 -->
+        <div class = "cards-container">
+            <div class = "card", id="card2">
+              <div class = "card-media" style="background-image: url({{ p.image_url }});">
+                <a href="{{ p.url }}" class="delivery-time">More Info</a>
+                <div class = "bookmark"></div>
+              </div>
+              <div class = "card-description">
+                <div class = "about-place">
+                  <div class = "place">
+                    <p class = "place-name">{{ p.name }}</p>
+                    <p class = "place-speciality">
+                    {% for address_name in p.location.display_address %}
+                      {{ address_name }}<br>
+                      {% endfor %}
+                    </p>
+                  </div>
+                  <div class = "place-review">
+                    <p class = "rating">{{ p.rating }} &#x2605;</p>
+                    <p class = "per-person"> Ph No:<br> {{ p.display_phone }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+       {% if forloop.counter|divisibleby:3 %}</div><div class="row">{% endif %}  {# HERE #}
+    
+    {% endfor %}
+    
+    </div><!-- /.row -->
+    {% endblock content %}
