@@ -4,6 +4,12 @@ The main objective of this project is to build a web application using a Python 
 
 # GitHub Link:
 - https://github.com/rohsequ/SI-507-Final-Project 
+# Technologies Used:
+• Django
+• BeautifulSoup
+• Requests
+• JSON 
+
 # Instructions for running the code:
 •	Please download the code zip file and unzip it at your desired location.
 
