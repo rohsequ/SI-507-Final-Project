@@ -72,7 +72,9 @@ Data was scraped from the huge JSON file and necessary data is stored in a Tree-
 1.	Yelp Fusion API – ('https://api.yelp.com/v3/businesses/search')  
 2.	IPify API = ('https://api.ipify.org?format=json')  
 3.	IP Geolocation API = ('http://ip-api.com/json/<YOUR_IP_ADDRESS>')  
-
+# Web pages scraped using BeautifulSoup:  
+I scrape the citydirectory.us website to get some information about the "State" that is selected and display it in the Top Rated Places Website.  
+I leveraged the websites web link format to scrape whichever state I want. 
 # Data Structure:  
 I used a generic Tree structure to store all the country, state, and city data. I have also loaded all the states and cities for the “United States” into a tree-structured SQL database for me to use in the web application. This can be seen in one of the pages where I have coded a dynamically populated Dropdown list for Country, State and Cities.   
 
