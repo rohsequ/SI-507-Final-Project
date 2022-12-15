@@ -86,16 +86,20 @@ Once successfully logged in, the User will be redirected to the “Home Page” 
 
 ![image](https://user-images.githubusercontent.com/81701847/206368418-f89f046b-42a1-488a-88ab-203b6ba0c492.png)  
 
-As seen, the page will pick up your current location based on my IP address. In my example it shows Ann Arbor.  
+As seen, the page will pick up your current location based on my IP address. In my example it shows Ann Arbor.
+This Home Page calls two different Web API's, one to get the IP address and two to get location information based on that IP address.  
 By clicking “Continue”, the page will move on to show Top Rated Places to visit in Ann Arbor as shown below:  
 
-![image](https://user-images.githubusercontent.com/81701847/206368447-b06c3147-ac44-4003-ab44-0253e88a1d9a.png)  
+![image](https://user-images.githubusercontent.com/81701847/207789232-fc3978ba-0a8d-4afc-8984-9d9142b38a02.png)  
 
 By Clicking “Different Location”, it takes you to a form where you can choose the Country, State and City in which you want to search.  
 
 ![image](https://user-images.githubusercontent.com/81701847/206368478-983e66e7-496a-4f49-bd43-404266e0ae5e.png)  
 
 By Clicking “Next” it will display the Top-Rated Places in Ault Field.  
+This page shows some useful information about the state you are looking in.  
+This information is got from Web scraping https://www.citydirectory.us/ using BeautifulSoup.  
+This doesnt just scrap one website, but dynamically scraps different websites based on what state you select or are in. 
 
 ![image](https://user-images.githubusercontent.com/81701847/206368491-9f01c341-ffc6-4f35-a632-7616ede408fe.png)  
 
