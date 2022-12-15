@@ -7,9 +7,19 @@ from django.contrib.auth.decorators import login_required
 from .forms import RecommendLocation
 from .models import Country,State, City, PersonLocation
 
+from bs4 import BeautifulSoup
+
 from dotenv import load_dotenv
 
 load_dotenv()
+
+def scrap_state_info(state):
+    page = requests.get(f"https://www.citydirectory.us/state-{state.lower()}.html")
+    soup = BeautifulSoup(page.content, "html.parser")
+    text =  soup.find(id="content").div.text 
+    text = text.split("\n")[1:-1]
+    text = ' '.join(text)
+    return text
 
 @login_required
 def person_loc_update_view(request):
@@ -18,7 +28,6 @@ def person_loc_update_view(request):
         form = RecommendLocation(request.POST, instance=request.user)
 
         if form.is_valid():
-            print(form.cleaned_data.items())
             personloc = PersonLocation.objects.get(user=request.user)
             personloc.country=form.cleaned_data['country']
             personloc.state=form.cleaned_data['state']
@@ -28,13 +37,17 @@ def person_loc_update_view(request):
             personloc.save()
             api_key = str(os.getenv('YELP_API_KEY'))
             headers = {'Authorization': 'Bearer %s' % api_key}
-            params={'latitude': str(form.cleaned_data['city'].latitude), 'longitude': str(form.cleaned_data['city'].longitude), 'sort_by':'rating', 'limit':'50'}
+            params={'latitude': str(form.cleaned_data['city'].latitude), 
+                'longitude': str(form.cleaned_data['city'].longitude), 'sort_by':'rating', 'limit':'50'}
             url='https://api.yelp.com/v3/businesses/search'
             req=requests.get(url, params=params, headers=headers)
             package = json.loads(req.text)
             package = package['businesses']
             if package:
-                return render(request, 'food_cards.html', {'package': package, 'city': form.cleaned_data['city'].name, 'state': form.cleaned_data['state'].name})
+                state_info = scrap_state_info(form.cleaned_data['state'].name)
+                return render(request, 'food_cards.html', {'package': package, 
+                            'city': form.cleaned_data['city'].name, 'state': form.cleaned_data['state'].name, 
+                            'state_info': state_info})
             else:
                 return render(request, "404_no_recommend.html")
     return render(request, 'loc_home.html', {'form': form})
@@ -50,7 +63,9 @@ def continue_to_main_view(request):
     package = json.loads(req.text)
     package = package['businesses']
     if package:
-        return render(request, 'food_cards.html', {'package': package, 'city': personloc.city.name, 'state': personloc.state.name})
+        state_info = scrap_state_info(personloc.state.name)
+        return render(request, 'food_cards.html', {'package': package, 'city': personloc.city.name, 'state': personloc.state.name,
+                    'state_info': state_info})
     else:
         return render(request, "404_no_recommend.html")
 
