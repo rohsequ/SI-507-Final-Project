@@ -9,7 +9,8 @@ The main objective of this project is to build a web application using a Python 
 • BeautifulSoup  
 • Requests  
 • JSON   
-
+# Demo Video of the Running Application:
+https://drive.google.com/file/d/16JS1f4NYn4tW1z5ShWDFBp4maKC8yf6_/view?usp=sharing  
 # Instructions for running the code:
 •	Please download the code zip file and unzip it at your desired location.  
 •	Open a terminal and navigate to that location using the “cd” command.  
@@ -72,7 +73,9 @@ Data was scraped from the huge JSON file and necessary data is stored in a Tree-
 1.	Yelp Fusion API – ('https://api.yelp.com/v3/businesses/search')  
 2.	IPify API = ('https://api.ipify.org?format=json')  
 3.	IP Geolocation API = ('http://ip-api.com/json/<YOUR_IP_ADDRESS>')  
-
+# Web pages scraped using BeautifulSoup:  
+I scrape the citydirectory.us website to get some information about the "State" that is selected and display it in the Top Rated Places Website.  
+I leveraged the websites web link format to scrape whichever state I want. 
 # Data Structure:  
 I used a generic Tree structure to store all the country, state, and city data. I have also loaded all the states and cities for the “United States” into a tree-structured SQL database for me to use in the web application. This can be seen in one of the pages where I have coded a dynamically populated Dropdown list for Country, State and Cities.   
 
